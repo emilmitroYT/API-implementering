@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>nope.</h1>
-</body>
+<html>
+  <head>
+    <title>Add Map</title>
+    <meta name="google-signin-client_id" content="692869534836-3ldc7cis3h95mnqratbs2l8q0qq68q5n.apps.googleusercontent.com">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXi6IZ2cQkA0IYeyX_ulz5QEyPhsuhgx0&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
 </html>
